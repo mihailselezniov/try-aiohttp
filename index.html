@@ -1,0 +1,45 @@
+<html>
+<head>
+	<style>
+	input {
+		width: 60px;
+	}
+	</style>
+</head>
+<body>
+<h1>Main page</h1>
+<form action="" method="post">
+  <b>addItem</b>
+  <input type="hidden" name="type" value="addItem">
+  id:<input type="text" name="id">
+  x:<input type="text" name="x">
+  y:<input type="text" name="y">
+  <input type="submit" value="Submit">
+</form>
+<form action="" method="post">
+  <b>moveItem</b>
+  <input type="hidden" name="type" value="moveItem">
+  id:<select name="id">
+    {% for key in data %}
+  	  <option value="{{key}}">{{key}}</option>
+    {% endfor %}
+  </select>
+  x:<input type="text" name="x">
+  y:<input type="text" name="y">
+  <input type="submit" value="Submit">
+</form>
+<form action="" method="post">
+  <b>removeItem</b>
+  <input type="hidden" name="type" value="removeItem">
+  id:<select name="id">
+    {% for key in data %}
+  	  <option value="{{key}}">{{key}}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="Submit">
+</form>
+{% for key in data %}
+    <p>{{key}}: {{data[key]}}</p>
+{% endfor %}
+</body>
+</html>
